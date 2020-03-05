@@ -53,15 +53,23 @@ public class Player {
 	
 	//Returns the move from the player (either from human or computer)
 	public String getPlayerMove() {
-		return "HELLO";
+		String playerMove = "";
+		if(isHuman) {
+			playerMove = getHumanMove();
+		}
+		else {
+			playerMove = generateComputerMove();
+			System.out.println("Computer Move (O): " + playerMove);
+		}
+		return playerMove;
 	}
 	
 	//Prompts the user for a move, retrieves input from the keyboard, and returns it
 	public String getHumanMove() {
 		Scanner scan = new Scanner(System.in);
         System.out.print("Player Move (X): ");
-        String humanMove= scan.next();
-        scan.close();
+        String humanMove = scan.next();
+        //scan.close();
 		return humanMove;
 	}
 	
